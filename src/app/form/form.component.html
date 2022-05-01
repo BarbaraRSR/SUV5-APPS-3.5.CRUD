@@ -2,20 +2,22 @@
 <h3>Nueva película</h3>
 <hr/>
 <br>
+<FORM [formGroup]="addMovie" (ngSubmit)="SaveData()">
 <div class="mb-3">
     <label for="title" class="form-label">Título</label>
-    <input [(ngModel)]="movie.title" name="title" type="text" class="form-control" id="title" placeholder="Ingresa el título de la película">
+    <input formControlName="title" type="text" class="form-control" id="title" placeholder="Ingresa el título de la película">
 </div>
 <div class="mb-3">
     <label for="synopsis" class="form-label">Sinopsis</label>
-    <input [(ngModel)]="movie.synopsis" name="synopsis" type="text" class="form-control" id="synopsis" placeholder="Ingresa la sinopsis de la película">
+    <input formControlName="synopsis" type="text" class="form-control" id="synopsis" placeholder="Ingresa la sinopsis de la película">
 </div>
 <div class="mb-3">
     <label for="year" class="form-label">Año</label>
-    <input [(ngModel)]="movie.year" name="year" type="number" class="form-control" id="year" placeholder="Ingresa el año de la película">
+    <input formControlName="year"type="number" class="form-control" id="year" placeholder="Ingresa el año de la película">
 </div>
 <div class="mb-3">
     <label for="cover" class="form-label">Cover</label>
-    <input [(ngModel)]="movie.cover" name="cover" type="text" class="form-control" id="cover" placeholder="¿Cover?">
+    <input formControlName="cover" type="text" class="form-control" id="cover" placeholder="¿Cover?">
 </div>
-<button (click)="saveMovie()" class="btn btn-primary">Guardar</button>
+<button type="Submit" class="btn btn-primary">Guardar</button>
+</FORM>
