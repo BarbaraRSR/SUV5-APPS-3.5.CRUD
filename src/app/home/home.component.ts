@@ -12,13 +12,20 @@ export class HomeComponent implements OnInit {
   API_ENDPOINT = 'http://127.0.0.1:8000/api';
   movies: Movie [] = [];
   
-  constructor(private movieService: MoviesService, private httpClient: HttpClient) {
+  constructor( private movieService: MoviesService, private httpClient: HttpClient ) {
     httpClient.get( this.API_ENDPOINT + '/list' ).subscribe( (data: any ) => {
       this.movies = data;
     });
   }
 
   ngOnInit(): void {
+  }
+
+  delMovie( movie_id: any ) {
+    this.movieService.delMovie( movie_id ).subscribe( (result) => {
+      //console.log ( result )
+      this.ngOnInit();
+    } );
   }
 
 }
