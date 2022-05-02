@@ -7,18 +7,20 @@ import { FormComponent } from './form/form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Route, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditMovieComponent } from './edit-movie/edit-movie.component';
 const routes: Route[] = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'form', component: FormComponent},
-  {path: 'form/:id', component: FormComponent}
+  {path: 'edit-movie/:id', component: EditMovieComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FormComponent
+    FormComponent,
+    EditMovieComponent
   ],
   imports: [
     BrowserModule,
