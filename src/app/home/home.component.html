@@ -23,8 +23,9 @@
         <td>{{movie.synopsis}}</td>
         <td>{{movie.year}}</td>
         <th>
-            <button class="btn btn-primary btn-sm" (click)="delMovie(movie.id)">Borrar</button>&nbsp; 
-            <a class="btn btn-primary btn-sm" routerLink="/form/{{movie.id}}">Editar</a></th>
+            <i class="btn btn-primary btn-sm fa fa-trash" (click)="delMovie(movie.id)"></i>
+            &nbsp; 
+            <a class="btn btn-primary btn-sm" routerLink="/form/{{movie.id}}"><i class="fa fa-edit"></i></a></th>
     </tr>
     </tbody>
 </table>
