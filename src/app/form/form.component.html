@@ -1,6 +1,10 @@
 
 <h3>Nueva película</h3>
 <hr/>
+<div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>¡Éxito!</strong> Nueva película guardada en la base de datos.
+    <button (click)="xmessage()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 <br>
 <FORM [formGroup]="addMovie" (ngSubmit)="SaveData()">
 <div class="mb-3">
