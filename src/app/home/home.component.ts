@@ -11,7 +11,8 @@ import { Movie } from '../interfaces/movie';
 export class HomeComponent implements OnInit {
   API_ENDPOINT = 'http://127.0.0.1:8000/api';
   movies: Movie [] = [];
-  
+  alertDel: boolean = false;
+
   constructor( private movieService: MoviesService, private httpClient: HttpClient ) {
     httpClient.get( this.API_ENDPOINT + '/list' ).subscribe( (data: any ) => {
       this.movies = data;
@@ -23,9 +24,12 @@ export class HomeComponent implements OnInit {
 
   delMovie( movie_id: any ) {
     this.movieService.delMovie( movie_id ).subscribe( (result) => {
-      //console.log ( result )
-      this.ngOnInit();
+      // console.log ( result )
+      this.alertDel = true;
     } );
+  }
+  xalert(){
+    this.alertDel = false;
   }
 
 }
