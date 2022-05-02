@@ -1,27 +1,22 @@
-
-<h3>Nueva película</h3>
-<hr/>
-<div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>¡Éxito!</strong> Nueva película guardada en la base de datos.
-    <button (click)="xmessage()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<br>
-<FORM [formGroup]="addMovie" (ngSubmit)="SaveData()">
-<div class="mb-3">
-    <label for="title" class="form-label">Título</label>
-    <input formControlName="title" type="text" class="form-control" id="title" placeholder="Ingresa el título de la película">
-</div>
-<div class="mb-3">
-    <label for="synopsis" class="form-label">Sinopsis</label>
-    <input formControlName="synopsis" type="text" class="form-control" id="synopsis" placeholder="Ingresa la sinopsis de la película">
-</div>
-<div class="mb-3">
-    <label for="year" class="form-label">Año</label>
-    <input formControlName="year"type="number" class="form-control" id="year" placeholder="Ingresa el año de la película">
-</div>
-<div class="mb-3">
-    <label for="cover" class="form-label">Cover</label>
-    <input formControlName="cover" type="text" class="form-control" id="cover" placeholder="¿Cover?">
-</div>
-<button type="Submit" class="btn btn-primary">Guardar</button>
-</FORM>
+<table class="table table-dark table-hover">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Sinopsis</th>
+        <th scope="col">Año</th>
+        <th scope="col">Acción</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let movie of movies">
+        <th scope="row">{{movie.id}}</th>
+        <td>{{movie.title}}</td>
+        <td>{{movie.synopsis}}</td>
+        <td>{{movie.year}}</td>
+        <th>
+            <button class="btn btn-primary btn-sm" (click)="delMovie(movie.id)">Borrar</button>&nbsp; 
+            <a class="btn btn-primary btn-sm" routerLink="/form/{{movie.id}}">Editar</a></th>
+    </tr>
+    </tbody>
+</table>
