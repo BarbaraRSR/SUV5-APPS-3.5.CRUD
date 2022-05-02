@@ -13,8 +13,22 @@ export class MoviesService {
   getMovies()
   { return this.http.get(this.apiURL + '/list'); }
 
-  // get una pelicula
-  getOneMovie(id: string)
-  { return this.http.get(this.apiURL+'/list/'+id); }
+  // publicar película
+  saveMovieData( data:any ) {
+    console.log( data );
+    return this.http.post(this.apiURL+'/add', data); }
+
+  // eliminar película
+  delMovie( id: any ) {
+    return this.http.delete( `${this.apiURL}/delete/${id}` );
+  }
+
+  // get una película
+  getOneMovie(id: number )
+  { return this.http.get( this.apiURL+'/list/'+id ); }
+
+  // get una película
+  updateMovie(id: number, data: any )
+  { return this.http.put( this.apiURL+'/update/'+id, data ); }
 
 }
