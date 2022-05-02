@@ -1,1 +1,23 @@
-<p>edit-movie works!</p>
+
+<h3>Modificar película</h3>
+<hr/>
+<div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>¡Éxito!</strong> Se han modificado los datos del registro.
+    <button (click)="xmessage()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<br>
+<FORM [formGroup]="editMovie" (ngSubmit)="EditData()">
+<div class="mb-3">
+    <label for="title" class="form-label">Título</label>
+    <input formControlName="title" type="text" class="form-control" id="title" placeholder="Ingresa el título de la película">
+</div>
+<div class="mb-3">
+    <label for="synopsis" class="form-label">Sinopsis</label>
+    <input formControlName="synopsis" type="text" class="form-control" id="synopsis" placeholder="Ingresa la sinopsis de la película">
+</div>
+<div class="mb-3">
+    <label for="year" class="form-label">Año</label>
+    <input formControlName="year"type="number" class="form-control" id="year" placeholder="Ingresa el año de la película">
+</div>
+<button type="Submit" class="btn btn-primary">Guardar cambios</button>
+</FORM>
